@@ -417,3 +417,289 @@ Dispersion measures are **critical** in ML for:
 4.  **Bias-Variance Tradeoff:** Understanding the variance of model predictions is key to diagnosing overfitting.
 5.  **Dimensionality Reduction:** PCA relies entirely on maximizing variance to preserve information.
 
+---
+
+# ⭐ **CHAPTER 3 — Plotting Graphs in Statistics (Full Deep Explanation)**
+
+**Topics covered in this chapter:**
+1.  **Univariate Analysis** (Categorical & Numerical)
+2.  **Bivariate Analysis** (Categorical-Categorical, Numerical-Numerical, Categorical-Numerical)
+3.  **Multivariate Analysis** (3D Scatter, Hue, FacetGrid, Pair Plot, Bubble Plot)
+4.  **ML Importance for Each Plot Type**
+
+---
+
+# ⭐ PART 1 — UNIVARIATE ANALYSIS
+
+Univariate = analyzing **ONE** feature at a time.
+Used to understand: **Distribution, Shape, Outliers, Frequency**.
+
+## ⭐ 1. CATEGORICAL DATA (Univariate)
+
+Categorical variables represent **groups/categories** (e.g., Gender, Yes/No, Placement Status).
+
+### A. Bar Chart
+Shows **frequency** of categories.
+
+**Example:**
+*   Placed: 70
+*   Not Placed: 30
+
+**Visualization:**
+![Bar Chart Visualization](images/bar_chart.png)
+
+**Why use it?**
+*   Easy to compare categories.
+*   Useful for imbalanced datasets.
+
+**ML Relevance:**
+*   **Class Imbalance Detection:** Essential for identifying if one class dominates (e.g., Fraud Detection).
+*   **Sampling Strategy:** Guides decisions on Oversampling (SMOTE) or Undersampling.
+
+### B. Pie Chart
+Shows **percentage** contribution.
+
+**Visualization:**
+![Pie Chart Visualization](images/pie_chart.png)
+
+**ML Relevance:**
+*   Rarely used in core ML, but helpful for high-level presentations of class distribution.
+
+---
+
+## ⭐ 2. NUMERICAL DATA (Univariate)
+
+Numerical variables include: Age, Salary, CGPA, IQ.
+
+### A. Histogram
+Shows the **distribution** of numerical data by grouping them into bins.
+
+**Visualization:**
+```
+Bins (Salary):
+20000–30000 | ████
+30000–40000 | ███████████
+40000–50000 | ██████████████████
+50000–60000 | ████████████
+60000–70000 | ██████
+```
+
+**What it tells:**
+*   **Skewness:** Is the data symmetric, left-skewed, or right-skewed?
+*   **Shape:** Is it Normal (Bell curve), Uniform, or Bimodal?
+*   **Outliers:** Bars far away from the main group indicate anomalies.
+
+**ML Relevance:**
+*   **Normalization:** Skewed data often needs Log Transformation or Box-Cox Transformation to become normal.
+*   **Algorithm Selection:** Some models (like Gaussian Naive Bayes) assume normal distribution.
+
+### B. Density Plot / KDE Plot
+A smoothed version of a histogram (Kernel Density Estimation).
+
+**Visualization:**
+```
+              __----__
+          _--'        '--_
+       _-'               '--_
+   ___-'                    '--___
+```
+
+**Why useful?**
+*   Shows a smooth probability density function.
+*   Easier to identify peaks (modes) than histograms.
+
+**ML Relevance:**
+*   **Assumption Checking:** Verifies if the data follows a Gaussian distribution.
+*   **Probabilistic Modeling:** Used in generative models.
+
+### C. Box Plot (Univariate)
+Shows the **Five Number Summary** (Min, Q1, Median, Q3, Max) and outliers.
+
+**Visualization:**
+```
+    |-----------IQR-----------|
+ Q1     Median          Q3
+
+----|-------[====]--------|------
+ min                         max
+```
+
+**ML Relevance:**
+*   **Outlier Detection:** The primary tool for spotting anomalies before training.
+*   **Data Cleaning:** Helps decide whether to remove or cap outliers.
+
+---
+
+# ⭐ PART 2 — BIVARIATE ANALYSIS
+
+Bivariate = relationship between **TWO VARIABLES**.
+
+## ⭐ 1. Categorical – Categorical
+
+### A. Clustered Bar Chart
+Shows the relationship between two categorical variables (e.g., Gender vs Placement).
+
+**Visualization:**
+```
+            Placed    Not Placed
+Male        ██████     ████
+Female      █████████  ██
+```
+
+### B. Heatmap (Crosstab)
+A color-coded table showing the frequency of combinations.
+
+**Visualization:**
+|        | Placed | Not Placed |
+| ------ | ------ | ---------- |
+| Male   | 40     | 20         |
+| Female | 30     | 10         |
+
+**ML Relevance:**
+*   **Feature Interaction:** Helps understand how two categorical features interact (e.g., "Females" are more likely to be "Placed" in a specific dataset).
+
+---
+
+## ⭐ 2. Numerical – Numerical
+
+### A. Scatter Plot
+Plots data points on X and Y axes to show relationships.
+
+**Visualization:**
+```
+Salary ↑
+       |     ●   ●
+       |   ● ● ●
+       | ● ●
+       |_________________→ IQ
+```
+
+**Insights:**
+*   **Correlation:** Positive, Negative, or No correlation.
+*   **Linearity:** Is the relationship linear or non-linear?
+*   **Clusters:** Do natural groups exist?
+
+**ML Relevance:**
+*   **Regression:** Essential for checking if a linear regression model will work.
+*   **Feature Engineering:** Helps identify if polynomial features are needed.
+
+### B. Line Graph
+Used for trends over time (Time Series).
+
+**Visualization:**
+```
+Price ↑
+130 |      /‾‾\__
+120 |   __/
+110 |__/
+     ---------------- Time →
+```
+
+---
+
+## ⭐ 3. Categorical – Numerical
+
+### A. Box Plot (Bivariate)
+Compares the distribution of a numerical variable across different categories.
+
+**Visualization:**
+```
+Male:    |--[====]----|
+Female:  |----[===]--|
+```
+
+**ML Relevance:**
+*   **Feature Importance:** If the box plots for different classes are very distinct, the numerical feature is a good predictor.
+
+### B. Violin Plot
+Combines a Box Plot and a KDE Plot. Shows distribution shape and summary statistics.
+
+**Visualization:**
+> *[Image: Violin Plot - Generation Pending due to Quota Limit]*
+
+---
+
+# ⭐ PART 3 — MULTIVARIATE ANALYSIS
+
+Analyzing **more than two variables**.
+
+## ⭐ 1. 3D Scatter Plot
+Adds a Z-axis to visualize three numerical variables.
+
+**Visualization:**
+```
+           ●
+       ●
+   ●
+----------------------------
+  (3D axis representation)
+```
+
+**ML Relevance:**
+*   **Clustering:** Visualizing how data points separate in higher dimensions (e.g., K-Means results).
+
+## ⭐ 2. Scatter Plot with Hue
+Uses **color** to encode a third (categorical) variable on a 2D scatter plot.
+
+**Visualization:**
+```
+● = Placed (blue)
+○ = Not Placed (red)
+
+ IQ →
+Salary ↑
+
+   ● ● ○ ● ● ○ ○
+```
+
+**ML Relevance:**
+*   **Classification Boundaries:** Helps visualize how well two features can separate classes (e.g., Decision Boundary).
+
+## ⭐ 3. Pair Plot
+A grid of scatter plots (for numerical pairs) and histograms (diagonal).
+
+**Visualization:**
+```
+       IQ    Salary   CGPA
+IQ     Hist   ●●●      ●●●
+Salary ●●●   Hist      ○○○
+CGPA   ●●●   ○○○      Hist
+```
+
+**ML Relevance:**
+*   **Multicollinearity:** Quickly spots highly correlated features that might be redundant.
+*   **Overview:** The "Swiss Army Knife" of EDA.
+
+## ⭐ 4. Bubble Plot
+A scatter plot where the **size** of the dot represents a third numerical variable.
+
+**Visualization:**
+```
+● small → less experience  
+●●● big → more experience  
+
+IQ →
+Salary ↑
+
+  ●     ●●       ●●●
+```
+
+**ML Relevance:**
+*   **Interaction Effects:** Visualizing complex relationships between three continuous variables.
+
+---
+
+# ⭐ FINAL SECTION — WHY PLOTS MATTER IN MACHINE LEARNING
+
+Visualization is the heart of **EDA (Exploratory Data Analysis)**.
+
+1.  **Understand Distributions:** (Histogram, KDE) -> Decides normalization.
+2.  **Detect Outliers:** (Box Plot) -> Decides data cleaning strategy.
+3.  **Check Relationships:** (Scatter Plot) -> Decides model selection (Linear vs Non-linear).
+4.  **Check Class Imbalance:** (Bar Chart) -> Decides sampling strategy.
+5.  **Find Correlation:** (Heatmap, Pair Plot) -> Decides feature selection.
+6.  **Understand Clusters:** (3D Scatter) -> Decides unsupervised learning approach.
+
+**Graphs help us improve data quality, choose the right algorithms, and build better ML models.**
+
+
