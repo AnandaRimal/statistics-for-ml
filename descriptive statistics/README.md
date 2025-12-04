@@ -270,7 +270,7 @@ $$
 $$
 
 ### Visualization
-![Range Visualization](images/range.png)
+> *[Image: Range Visualization - Generation Pending due to Quota Limit]*
 
 ### Why it is Important
 *   **Simplicity:** The easiest way to get a quick sense of the data's spread.
@@ -307,7 +307,7 @@ $$
 $$
 
 ### Visualization
-![Variance Visualization](images/variance.png)
+> *[Image: Variance Visualization - Generation Pending due to Quota Limit]*
 
 ### Why it is Important
 *   **Mathematical Foundation:** The basis for Standard Deviation, Covariance, and Correlation.
@@ -336,7 +336,7 @@ $$
 $$
 
 ### Visualization
-![Standard Deviation Visualization](images/std_dev.png)
+> *[Image: Standard Deviation Visualization - Generation Pending due to Quota Limit]*
 
 ### Why it is Important
 *   **Interpretability:** Unlike variance, SD is in the same units as the data (e.g., "spread of $10" vs "variance of $100^2").
@@ -364,7 +364,7 @@ $$
 *   **Dataset B is more stable.**
 
 ### Visualization
-![Coefficient of Variation Visualization](images/coeff_variation.png)
+> *[Image: Coefficient of Variation Visualization - Generation Pending due to Quota Limit]*
 
 ### Why it is Important
 *   **Comparability:** Allows comparing the volatility of stocks with different prices or the variability of height vs weight.
@@ -394,7 +394,7 @@ IQR = 18 - 8 = 10
 $$
 
 ### Visualization
-![IQR Visualization](images/iqr.png)
+> *[Image: IQR Visualization - Generation Pending due to Quota Limit]*
 
 ### Why it is Important
 *   **Robustness:** Like the median, IQR is not affected by extreme outliers.
